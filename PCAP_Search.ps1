@@ -3,7 +3,7 @@ $http_userfields = 'login','wpname','ahd_username','unickname','nickname','user'
 $dontDot = 'pw','uid','id','uin', 'log'
 $cc_regex1 = "^([4-6][0-9][0-9][0-9])\-([0-9][0-9][0-9][0-9])\-([0-9][0-9][0-9][0-9])\-([0-9][0-9][0-9][0-9])"
 # Take in arg to set location of pcap files.
-$pcapDirectory = 'H:\ASPTT\Pentest\2018\SPA\Gabe_SD5166399'
+$pcapDirectory = 'D:\Path\to\pcaps\'
 $pcapList = Get-ChildItem $pcapDirectory
 $dotArrayStrings = @()
 
@@ -45,8 +45,8 @@ foreach ($pcap in $pcapList){
     if ($pcap.Name -like "*PCAP"){
         $pcapName = $pcap.Name
         Write-Host $pcapName
-        $notFound = "H:\ASPTT\Powershell_Scripts\TShark_Test_Double_Check_$pcapName.txt"
-        $outFile = "H:\ASPTT\Powershell_Scripts\TShark_Test_Interesting_$pcapName.txt"
+        $notFound = "D:\Path\to\Output\TShark_Test_Double_Check_$pcapName.txt"
+        $outFile = "D:\Path\to\Output\TShark_Test_Interesting_$pcapName.txt"
         $pcapName | Out-File $outFile -Append
 
         # Get number of tcp streams:
